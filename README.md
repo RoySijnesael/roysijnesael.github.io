@@ -1,39 +1,50 @@
 # roysijnesael.github.io
 
-My personal site, built with [Jekyll](https://jekyllrb.com/) and deployed to
-[GitHub Pages](https://pages.github.com/) with GitHub Actions.
+My personal site, built with [Next.js](https://nextjs.org/) and deployed as a
+static site to [GitHub Pages](https://pages.github.com/).
 
 Live at <https://roysijnesael.github.io>.
 
 ## Local development
 
-The site uses Ruby (3.1–3.3; Jekyll's `eventmachine` dependency does not build
-on Ruby 3.4). Install the dependencies once:
+Install dependencies and start the dev server:
 
 ```shell
-bundle install
+npm install
+npm run dev
 ```
 
-Then start the local server:
+The site is available at <http://localhost:3000>.
+
+## Building
+
+The site is a static export (`output: "export"` in `next.config.ts`); the
+build writes plain HTML, CSS and JS to `out/`:
 
 ```shell
-bundle exec jekyll serve
+npm run build
 ```
 
-The site is available at <http://localhost:4000>.
-
-Alternatively, build without installing Ruby locally using Docker:
+To preview the exported site locally:
 
 ```shell
-docker run --rm -v "$PWD:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4 \
-  sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0"
+npm run preview
 ```
 
-## Editing
+## Structure
 
-- `_config.yml` — site title, description, theme and URL
-- `index.md` — homepage
-- `about.md` — about page
-- `.github/workflows/pages.yml` — the deploy workflow
+- `app/layout.tsx` — shared header, footer and metadata
+- `app/page.tsx` — homepage
+- `app/about/page.tsx` — about page
+- `app/not-found.tsx` — 404 page
+- `app/globals.css` — styles
+- `.github/workflows/pages.yml` — build and deploy workflow
 
 Pushing to `main` triggers a build and deploy to GitHub Pages.
+
+## Notes
+
+GitHub Pages only serves static files, so this project avoids server-side
+features: no route handlers, middleware, ISR or server actions. Images use the
+unoptimized loader, and `trailingSlash` is enabled so pages resolve as
+directories.

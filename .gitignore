@@ -1,14 +1,14 @@
-# Jekyll build output
-_site/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
+# Node
+node_modules/
+.next/
+out/
 
-# Dependencies
-vendor/
-.bundle/
-Gemfile.lock
+# Environment
+.env*.local
 
 # Editor / OS files
 .idea/
 .DS_Store
+
+# Logs
+npm-debug.log*
