@@ -42,6 +42,11 @@ npm run preview
 
 Pushing to `main` triggers a build and deploy to GitHub Pages.
 
+> **Note:** On the GitHub Free plan, Pages only works for public repositories.
+> While this repo is private, the workflow skips the build and deploy jobs. Set
+> the repository back to public (and re-enable Pages under **Settings → Pages**
+> if needed) to publish the site again.
+
 ## Notes
 
 GitHub Pages only serves static files, so this project avoids server-side

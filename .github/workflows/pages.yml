@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   build:
+    # GitHub Pages is unavailable for private repos on the Free plan.
+    # Skip deploys until the repository is public again.
+    if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,6 +35,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Re-create the Pages site if it was disabled while the repo was private.
+          enablement: true
 
       - name: Build static site
         run: npm run build
@@ -42,6 +48,7 @@ jobs:
           path: ./out
 
   deploy:
+    if: ${{ !github.event.repository.private }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
