@@ -1,3 +1,17 @@
-theme: jekyll-theme-minimal
 title: Roy's homepage
-description: Bookmark this to keep an eye on my project updates!
+description: Notes, projects and things I'm working on.
+theme: jekyll-theme-minimal
+
+# User site, served from the domain root.
+url: https://roysijnesael.github.io
+baseurl: ""
+
+author: Roy Sijnesael
+
+# Files that should not be published.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .idea/
