@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  // Temporary: keep the placeholder out of search results while the site is
+  // being rebuilt. Remove this block when the real site goes live.
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
@@ -31,8 +37,6 @@ export default function RootLayout({
               Roy Sijnesael
             </Link>
             <nav className="site-nav" aria-label="Main">
-              <Link href="/">Home</Link>
-              <Link href="/about/">About</Link>
               <a href="https://github.com/RoySijnesael">GitHub</a>
             </nav>
           </div>
