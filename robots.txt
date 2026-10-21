@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://roysijnesael.github.io/sitemap.xml

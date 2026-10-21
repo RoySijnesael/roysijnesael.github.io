@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,32049,i=>{"use strict";var t=i.i(36091),o=i.i(54505),n=i.i(2120);function e(i,e){return(0,t.f)(i,e,n.f,o.f)}let c=e("div"),r=e("nav");i.s(["MotionDiv",0,c,"MotionNav",0,r],32049)}]);
